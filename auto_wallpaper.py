@@ -4,6 +4,8 @@ Download and change laptop wallpaper automatically
 # Libraries
 import requests
 import json
+import PyWallpaper
+
 
 # Open API
 api_url = "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY"
@@ -28,3 +30,6 @@ res = requests.get(image_url)
 # Save the image
 with open('apod.png', 'wb') as image:
     image.write(res.content)
+
+# Set as wallpaper
+PyWallpaper.change_wallpaper('apod.png')
