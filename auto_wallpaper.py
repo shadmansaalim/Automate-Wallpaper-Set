@@ -22,8 +22,9 @@ dict_content = json.loads(decoded_content)
 # Get image url from content
 image_url = dict_content['url']
 
-print(image_url)
-
 # Download the image
 res = requests.get(image_url)
-print(res)
+
+# Save the image
+with open('apod.png', 'wb') as image:
+    image.write(res.content)
